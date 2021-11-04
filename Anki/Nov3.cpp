@@ -25,6 +25,25 @@ int main()
     cout << inches;
     cout << inches2;
     
+    int one (3), two, three (4);
+
+    cout << one;
+    cout << three;
+
+    cin >> one;
+
+    cout << one;
+    cout << "\n";
+
+    decltype (one*3.5) four = one;
+
+    cout << four;
+    cout << "\n";
+
+    int count = 0;
+
+    double distance = 1.5;
+
 
     return 0;
 }
