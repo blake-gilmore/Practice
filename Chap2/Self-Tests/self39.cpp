@@ -6,17 +6,27 @@ using namespace std;
 int main()
 {
     fstream inputStream;
-    string name;
+    string nameHighScore;
+    string tempName;
     int score;
     int records;
+    int highScore = 0;
+    
 
     inputStream.open("player.txt");
 
     for (inputStream >> records; records > 0; records--)
     {
-        inputStream >> name;
+        inputStream >> tempName;
         inputStream >> score;
-        cout << name << " " << score << endl;
+
+        if (score > highScore)
+        {
+            highScore = score;
+            nameHighScore = tempName;
+        }
     }
+
+    cout << nameHighScore << "  " << highScore << endl;
     return 0;
 }
