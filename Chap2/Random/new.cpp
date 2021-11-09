@@ -18,5 +18,16 @@ int main()
         cout << "bye bye";
     }
 
+    int feet(0);
+    int inches = 0;
+
+    cout << feet << inches;
+
+    decltype (feet*3.5) New;
+
+    New = 36.5;
+    cout << New;
+
+
     return 0;
 }
