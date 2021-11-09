@@ -28,6 +28,8 @@ int main()
     New = 36.5;
     cout << New;
 
+    int newNum(2), secondNum, thirdNum = 3;
+
 
     return 0;
 }
