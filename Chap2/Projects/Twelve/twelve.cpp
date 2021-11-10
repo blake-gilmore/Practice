@@ -45,8 +45,6 @@ int main()
 
     double onePercent, twoPercent, threePercent, fourPercent, fivePercent, sixPercent, sevenPercent, eightPercent, ninePercent;
 
-    cout << one;
-    cout << count;
     onePercent = (one / count) * 100;
     twoPercent = (two / count) * 100;
     threePercent = (three / count) * 100;
