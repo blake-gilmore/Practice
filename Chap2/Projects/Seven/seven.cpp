@@ -23,17 +23,14 @@ int main()
 
         totalPoints += pointsPossible;
         pointsReceived += currentScore;
-
-        totalPercentage += (currentScore / pointsPossible);
     }
 
-    totalPercentage = totalPercentage / exerciseNumber;
+    totalPercentage = pointsReceived / totalPoints;
     totalPercentage *= 100;
 
     cout.setf(ios::fixed);
     cout.setf(ios::showpoint);
     cout.precision(2);
-
 
     cout << "Your total is " << pointsReceived << " out of " << totalPoints << ", or %" << totalPercentage << endl;
 
