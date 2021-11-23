@@ -31,6 +31,7 @@ int main()
         heightCalc(gender, momHeight, dadHeight);
 
         cout << "Would you like to compute another child's height? (Y/N)";
+        cin >> again;
         
     } while (again != 'N');
 
