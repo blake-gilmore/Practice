@@ -1,3 +1,6 @@
+//reads in list of lowercase letters from user into array
+//deletes repeated letters and outputs new list of letters
+
 #include <iostream>
 using namespace std;
 void deleteRepeats(char letters[], int& numberUsed);
@@ -27,6 +30,10 @@ int main()
 }
 
 void deleteRepeats(char letters[], int& numberUsed)
+//Precondition: letters is array of any size with amount numberUsed of lowercase characters
+//numberUsed must be less than size of letters[]
+//Postcondition: deletes any repeated lowercase characters and moves up remaining letters. 
+//subtracts from numberUsed each time a letter is deleted.
 {
     for (int i = 0; i < numberUsed - 1; i++)
     {
