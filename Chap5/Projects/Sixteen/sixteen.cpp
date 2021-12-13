@@ -5,7 +5,7 @@ using namespace std;
 const int MOVIES = 6;
 const int REVIEWERS = 1000;
 const int USER = 3;
-void readData(int scores[][MOVIES], int sizeOfScores);
+void readData(int scores[][MOVIES], int& sizeOfScores);
 void userInput(int scores[][MOVIES], int userScores[MOVIES]);
 void setInitialUserScores(int userScores[]);
 int getReviewer(int scores[][MOVIES], int userScores[], int sizeOfScores);
@@ -24,7 +24,7 @@ int main()
     outputRatings(closestReviewer, userScores, scores);
     return 0;
 }
-void readData(int scores[][MOVIES], int sizeOfScores)
+void readData(int scores[][MOVIES], int& sizeOfScores)
 //inputs data from a file into scores array
 {
     sizeOfScores = 0;
@@ -32,15 +32,18 @@ void readData(int scores[][MOVIES], int sizeOfScores)
     ifstream inputStream;
     inputStream.open("reviews.txt");
 
-    while (inputStream >> next);
+    while (inputStream >> next)
     {
-        for (int index2 = 0; index2 < MOVIES; index2++)
+        scores[index][0] = next;
+        for (int index2 = 1; index2 < MOVIES; index2++)
         {
             inputStream >> scores[index][index2];
         }
         index++;
     }
     sizeOfScores = index;
+    cout << sizeOfScores << endl;
+    inputStream.close();
     return;
 }
 void userInput(int scores[][MOVIES], int userScores[MOVIES])
@@ -85,7 +88,6 @@ int getReviewer(int scores[][MOVIES], int userScores[], int sizeOfScores)
 void outputRatings(int closestReviewer, int userScores[], int scores[][MOVIES])
 //outputs ratings of closestReviewer of movies user did not score
 {
-    cout << closestReviewer;
     for (int i = 0; i < MOVIES; i++)
     {
         if (userScores[i] < 0)
