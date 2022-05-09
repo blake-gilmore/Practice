@@ -1,55 +1,4 @@
-//house type class
-#include <iostream>
-#include <string>
-#include <iomanip>
-using std::string;
-using std::cout;
-using std::cin;
-using std::endl;
-
-class houseType
-{
-public:
-    string getStyle() const;
-    int getNumOfBedrooms() const;
-    int getNumOfBathrooms() const;
-    int getNumOfCarsGarage() const;
-    int getYearBuilt() const;
-    int getFinishedSquareFootage()const;
-    double getPrice()const;
-    double getTax()const;
-    void setStyle(string newStyle);
-    void setNumOfBedrooms(int newBed);
-    void setNumOfBathrooms(int newBath);
-    void setNumOfCarsGarage(int newCar);
-    void setYearBuilt(int newYear);
-    void setFinishedSquareFootage(int newSquare);
-    void setPrice(int newPrice);
-    void setTax(int newTax);
-    void printData();
-
-    //Constructor
-    houseType(string = "", int = 0, int = 0, int = 0, int = 0, int = 0, double = 0, double = 0);
-
-
-private:
-    string style;
-    int numOfBedrooms;
-    int numOfBathrooms;
-    int numOfCarsGarage;
-    int yearBuilt;
-    int finishedSquareFootage;
-    double price;
-    double tax;
-};
-
-int main()
-{
-    using std::cout;
-    using std::cin;
-    using std::endl;
-}
-
+#include "houseType.h"
 
 int houseType::getNumOfBedrooms() const
 {
@@ -134,9 +83,22 @@ houseType::houseType(string newStyle, int newBed, int newBath, int newCar, int n
     return;
 }
 
-void houseType::printData()
+void houseType::printData() const
 {
-    cout << fixed << showpoint << setPrecision(2);
+    using std::fixed;
+    using std:: showpoint;
+    using std::setprecision;
+    cout << fixed << showpoint << setprecision(2);
 
     cout << "The house has the following data: " << endl;
+    cout << "Style: " << style << endl;
+    cout << "Number of Bedrooms: " << numOfBedrooms << endl;
+    cout << "Number of Bathrooms: " << numOfBathrooms << endl;
+    cout << "Year Built: " << yearBuilt << endl;
+    cout << "Number of Cars to the Garage: " << numOfCarsGarage << endl;
+    cout << "Square Footage: " << finishedSquareFootage << endl;
+    cout << "Price: " << price << endl;
+    cout << "Tax: " << tax << endl;
+
+    return;
 }
