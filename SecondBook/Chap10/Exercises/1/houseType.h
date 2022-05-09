@@ -24,8 +24,8 @@ public:
     void setNumOfCarsGarage(int newCar);
     void setYearBuilt(int newYear);
     void setFinishedSquareFootage(int newSquare);
-    void setPrice(int newPrice);
-    void setTax(int newTax);
+    void setPrice(double newPrice);
+    void setTax(double newTax);
     void printData() const;
 
     //Constructor

@@ -8,7 +8,9 @@ int main()
     string userStyle;
     double userDoub;
     int userInt;
+    char userChoice;
 
+do {
     cout << "What to change: \n"
          << "1. Bedrooms\n"
          << "2. Bathrooms\n"
@@ -32,13 +34,38 @@ int main()
     switch(userSelect)
     {
         case 1:
-            
+            newHouse.setNumOfBedrooms(userInt);
+            break;
         case 2:
+            newHouse.setNumOfBathrooms(userInt);
+            break;
         case 3:
+            newHouse.setNumOfCarsGarage(userInt);
+            break;
         case 4:
+            newHouse.setYearBuilt(userInt);
+            break;
         case 5:
+            newHouse.setFinishedSquareFootage(userInt);
+            break;
         case 6:
+            newHouse.setPrice(userDoub);
+            break;
         case 7:
+            newHouse.setTax(userDoub);
+            break;
         case 8:
+            newHouse.setStyle(userStyle);
+            break;
     }
+
+    cout << "Updated House\n\n\n";
+    newHouse.printData();
+
+    cout << "\n\n\nWould you like to do something else? (y/n)";
+    cin >> userChoice;
+}while (userChoice == 'y');
+
+return 0;
+
 }

@@ -58,12 +58,12 @@ void houseType::setFinishedSquareFootage(int newSquare)
     finishedSquareFootage = newSquare;
     return;
 }
-void houseType::setPrice(int newPrice)
+void houseType::setPrice(double newPrice)
 {
     price = newPrice;
     return;
 }
-void houseType::setTax(int newTax)
+void houseType::setTax(double newTax)
 {
     tax = newTax;
     return;
