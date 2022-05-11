@@ -40,3 +40,19 @@ clockType clock3(12,30)...
 ~clockType();
 
 
+class listType
+{
+public:
+    bool isEmptyList() const;
+    bool isFullList() const;
+    int search(int searchItem) const;
+    void insert(int newElement);
+    void remove(int removeElement);
+    void destroyList();
+    void printList() const;
+    listType();
+
+private:
+    int list[1000]
+    int length;
+}
