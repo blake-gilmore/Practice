@@ -4,7 +4,42 @@
 
 int main()
 {
-    
+    using std::cin;
+    using std::cout;
+    using std::endl;
+    cashRegister counter;
+    dispenserType orange(100,50);
+    dispenserType apple(100,65);
+    dispenserType mango(75,80);
+    dispenserType strawberryBanana(100,85);
+    int choice;
+    showSelection();
+    cin >> choice;
+
+    while (choice != 9)
+    {
+        switch (choice)
+        {
+        case 1:
+            sellProduct(orange, counter);
+            break;
+        case 2:
+            sellProduct(apple, counter);
+            break;
+        case 3:
+            sellProduct(mango, counter);
+            break;
+        case 4: 
+            sellProduct(strawberryBanana, counter);
+            break;
+        default :
+            cout << "Invalid selection." << endl;
+        }
+
+        showSelection();
+        cin >> choice;
+    }
+
     return 0;
 }
 void showSelection()
