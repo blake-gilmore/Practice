@@ -1,6 +1,8 @@
 #include <iostream>
 #include "cashRegister.h"
 #include "dispenserType.h"
+void showSelection();
+void sellProduct(dispenserType&, cashRegister&);
 
 int main()
 {

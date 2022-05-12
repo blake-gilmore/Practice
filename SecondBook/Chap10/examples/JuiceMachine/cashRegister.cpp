@@ -7,7 +7,7 @@ void cashRegister::acceptAmount(int amountIn)
 {
     cashOnHand += amountIn;
 }
-cashRegister::cashRegister(int cashIn = 500)
+cashRegister::cashRegister(int cashIn)
 {
     if (cashIn >= 0)
         cashOnHand = cashIn;

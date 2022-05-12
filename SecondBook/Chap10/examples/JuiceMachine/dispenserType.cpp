@@ -11,7 +11,7 @@ void dispenserType::makeSale()
 {
     numberOfItems--;
 }
-dispenserType::dispenserType(int setNoOfItems = 50, int setCost = 50)
+dispenserType::dispenserType(int setNoOfItems, int setCost)
 {
     if (setNoOfItems >= 0)
         numberOfItems = setNoOfItems;

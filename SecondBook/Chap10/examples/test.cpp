@@ -1,29 +1,28 @@
-
-
-class   clockType
+#include <iostream>
+using namespace std;
+class myClass
 {
-    public:
-        void setTime(int, int, int);
-        void getTime(int&, int&, int&) const;
-        void printTime() const;
-        void incrementSeconds();
-        void incrementMinutes();
-        void incrementHours();
-        bool equalTime(const clockType&) const;
+public:
+    static int counter;
+    void printCounter() const;
 
-    private:
-        int hr;
-        int min;
-        int sec;
+private:
+
 };
+int myClass::counter = 0;
 
-//Declaring a class object
-clockType myClock;
-clockType yourClock;
+void myClass::printCounter() const
+{
+    cout << "Counter is " << counter << endl;
+}
 
-myClock.setTime(5,2,30);
-myClock.printTime();
-yourClock.setTime(x,y,z);
+int main()
+{
+    myClass newClass;
 
-if (myClock.equalTime(yourClock))
-...
+    myClass::counter++;
+    newClass.counter++;
+    newClass.printCounter();
+
+    return 0;
+}
