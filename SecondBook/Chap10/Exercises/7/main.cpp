@@ -8,12 +8,13 @@ int main()
     using std::endl;
 
     clockType myClock;
+    clockType secondClock(45, 24, 22);
     
     printMenu();
     int selection;
     int newNum;
     cin >> selection;
-    while(selection != 9)
+    while(selection != 10)
     {
         switch (selection)
         {
@@ -40,7 +41,16 @@ int main()
             cout << "Enter the second you'd like to change to: ";
             cin >> newNum;
             myClock.setSeconds(newNum);
-            
+            break;
+        case 7:
+            cout << "Total seconds is " << myClock.secondsElapsed();
+            break;
+        case 8:
+            cout << "There are " << myClock.remainingTime() << " seconds in the day left.\n";
+            break;
+        case 9:
+            myClock.compareClocks(secondClock);
+            break;
         default:
             cout << "Invalid entry.\n\n";
         }
@@ -60,7 +70,11 @@ void printMenu()
          << "3. Get Seconds\n"
          << "4. Set hour\n"
          << "5. Set Minutes\n"
-         << "6. Set Seconds\n";
+         << "6. Set Seconds\n"
+         << "7. Total Number of Seconds\n"
+         << "8. Remaining Time in the Day\n"
+         << "9. Get Clock Difference\n"
+         << "10. Exit Program\n";
 
     return;
 }
