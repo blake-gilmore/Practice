@@ -1,3 +1,5 @@
+#ifndef BOOKTYPE_H
+#define BOOKTYPE_H
 #include <string>
 using std::string;
 class bookType
@@ -12,14 +14,20 @@ public:
     double getPrice() const;
     int getYearPublished() const;
     int getCopiesAvailable() const;
+    static int getTotalNumBooks();
 
     void setTitle(string);
-    void setAuthors(string[], int);
+    bool setAuthors(int);
     void setPublisher(string);
     void setISBN(string);
     void setPrice(double);
     void setYearPublished(int);
     void setCopiesAvailable(int);
+    bool checkTitle(string);
+    void printNumCopies();
+    void updateStock(int);
+    void printDetails() const;
+    void printAuthors() const;
 
 
 private:
@@ -31,4 +39,7 @@ private:
     int yearPublished;
     int numAuthors;
     int copies;
+    static int numBooks;
 };
+
+#endif
