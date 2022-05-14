@@ -61,30 +61,30 @@ void sellProduct(dispenserType& product, cashRegister& pCounter)
     using std::cout;
     using std::endl;
     using std::cin;
-    int amount;
+    int amount(0);
     int amount2;
 
     if (product.getNoOfItems() > 0)
     {
-        cout << "Please deposit " << product.getCost() << " cents" << endl;
-        cin >> amount;
-
-        if (amount < product.getCost())
+        do
         {
-            cout << "Please deposit another " << product.getCost() - amount << " cents" << endl;
+            cout << "Please deposit " << product.getCost() << " cents" << endl;
             cin >> amount2;
-            amount += amount2;
-        }
-        if (amount >= product.getCost())
-        {
-            pCounter.acceptAmount(amount);
-            product.makeSale();
-            cout << "Collect your item at the bottom and enjoy." << endl;
-        }
-        else
-            cout << "The amount is not enough. " << "Collect what you deposited." << endl;
+            amount+=amount2;
 
-        cout << "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-" << endl << endl;
+            if (amount < product.getCost())
+            {
+                cout << "Not enough. Please deposit another " << product.getCost() - amount << " cents" << endl;
+            }
+            if (amount >= product.getCost())
+            {
+                pCounter.acceptAmount(amount);
+                product.makeSale();
+                cout << "Collect your item at the bottom and enjoy." << endl;
+            }
+
+            cout << "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-" << endl << endl;
+        }while(amount < product.getCost());
     }
     else
         cout << "Sorry, this item is sold out." << endl;
