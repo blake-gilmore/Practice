@@ -10,4 +10,5 @@ private:
     bool turn; //0 for O and 1 for X
     void printBoard();
     void checkWinConditions();
+    void announceWinner(char) const;
 };
