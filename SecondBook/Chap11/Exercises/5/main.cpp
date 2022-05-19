@@ -3,6 +3,7 @@
 int main()
 {
     extPersonType newPerson;
+    newPerson.printInformation();
     newPerson.setAddress("1317 Cornet Street");
     newPerson.setCity("Henderson");
     newPerson.setState("Nevada");
