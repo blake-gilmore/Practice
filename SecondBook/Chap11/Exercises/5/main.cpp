@@ -1,18 +1,13 @@
-#include "extPersonType.h"
+#include "addressBook.h"
+using namespace std;
+#include <fstream>
 
 int main()
 {
-    extPersonType newPerson;
-    newPerson.printInformation();
-    newPerson.setAddress("1317 Cornet Street");
-    newPerson.setCity("Henderson");
-    newPerson.setState("Nevada");
-    newPerson.setZipCode("89012");
-    newPerson.setName("Blake", "Gilmore");
-    newPerson.setDate(2,29,1996);
-    newPerson.setType("Family Member");
-    newPerson.setPhoneNumber("702-498-5066");
-
-    newPerson.printInformation();
+    addressBook myBook;
+    ifstream fromFile;
+    fromFile.open("book.txt");
+    myBook.loadData(fromFile);
+    myBook.printData();
     return 0;
 }
