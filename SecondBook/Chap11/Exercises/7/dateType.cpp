@@ -152,9 +152,65 @@ runningSum = 0; keeps track of days left in year
 
 int dateType::daysRemaining()
 {
-    
-}
-void dateType::addDays()
-{
+    int runningSum(0);
 
+    for (int i = (dMonth + 1); i <= 12; i++)
+    {
+        runningSum += daysInMonth(i);
+    }
+
+    runningSum += (daysInMonth() - dDay);
+    return runningSum;
+}
+
+/*
+addDays algorithm:
+
+variables:
+runningMonth; currentMonth in calculation
+Steps:
+1. Get number of days left in month
+2. Subtract days left from days sent to function
+3. If negative, then add daysAdded to current date, keep in current month, and print and return
+4. Otherwise: Loop through months following current month. Check if the daysInMonth for that month are larger than days left
+   If not, then set to that month and the number of days left, then print and return
+   Otherwise: subtract daysInMonth from days left and continue to next month
+   When continuing to next month, check if next month is 13, if so, set month to 1
+
+*/
+
+void dateType::addDays(int daysAdded)
+{
+    if ((daysInMonth() - dDay) < daysAdded)
+    {
+        daysAdded -= (daysInMonth() - dDay);
+        nextMonth();
+        do
+        {
+            if (daysInMonth() >= daysAdded)
+            {
+                dDay = daysAdded;
+                break;
+            }
+            else
+            {
+                daysAdded -= daysInMonth();
+                nextMonth();
+            }
+        } while (daysAdded > 0);
+        
+    }
+    else
+    {
+        dDay += daysAdded;
+    }
+
+    printDate();
+}
+void dateType::nextMonth()
+{
+    dMonth++;
+    if (dMonth > 12)
+        dMonth = 1;
+    return;
 }

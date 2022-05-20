@@ -37,12 +37,13 @@ int daysInMonth();
 
 int daysPassed();
 int daysRemaining();
-void addDays();
+void addDays(int);
 
 private:
 int dMonth; //variable to store the month
 int dDay; //variable to store the day
 int dYear; //variable to store the year
 int daysInMonth(int);
+void nextMonth();
 };
 #endif
