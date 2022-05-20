@@ -57,7 +57,10 @@ bool dateType::isLeapYear()
     if ((dYear % 4) == 0 && dYear != 2000)
         return true;
 
-    else false;
+    else 
+        return false;
+
+    return false;
 }
 
 /*
@@ -105,6 +108,7 @@ int dateType::daysInMonth(int monthCmp)
         else
             return 30;
     }
+    return 0;
 }
 int dateType::daysInMonth() { return daysInMonth(dMonth); }
 
@@ -211,6 +215,9 @@ void dateType::nextMonth()
 {
     dMonth++;
     if (dMonth > 12)
+    {
         dMonth = 1;
+        dYear++;
+    }
     return;
 }
