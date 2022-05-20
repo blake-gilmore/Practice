@@ -28,6 +28,16 @@ dateType(int month = 1, int day = 1, int year = 1900);
 // If no values are specified, the default
 // values are used to initialize the member
 // variables.
+
+void setMonth(int);
+void setDay(int);
+void setYear(int);
+bool isLeapYear();
+int daysInMonth();
+int daysPassed();
+int daysRemaining();
+void addDays();
+
 private:
 int dMonth; //variable to store the month
 int dDay; //variable to store the day
