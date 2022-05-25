@@ -16,8 +16,8 @@ public:
     int getAccountNumber() const;
     double getBalance() const;
     void print() const;
-    void depositWithdraw(double);
-    void bankAccount::withdraw(double withdraw);
+    void deposit(double);
+    void withdraw(double withdraw);
 
 
 private:
