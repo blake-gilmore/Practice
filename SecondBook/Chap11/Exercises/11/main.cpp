@@ -17,9 +17,56 @@ date, discharge date, and the class doctorType to store the attending
 physician’s name.) Add appropriate constructors and member functions to
 initialize, access, and manipulate the data members.
 Write a program to test your classes.*/
+#include "patientType.h"
+#include <iostream>
+#include <string>
+using namespace std;
+void getUserInput(patientType&);
 
 int main()
 {
-    
+    patientType newPatient;
+    getUserInput(newPatient);
+
+    newPatient.printInfo();
     return 0;
+}
+void getUserInput(patientType& newPatient)
+{
+    string first, second;
+    doctorType tempDoctor;
+    //Doctor information
+    cout << "Enter doctor first name: ";
+    cin >> first;
+    cout << "Enter doctor last name";
+    cin >> second;
+    tempDoctor.setName(first, second);
+
+    billType tempBill;
+    cout << "Enter patient ID: ";
+    cin >> first;
+    tempBill.setPatientId(first);
+
+    dateType tempBirth;
+    cout << "Enter month of birth, day, and year";
+    int num1, num2, num3;
+    cin >> num1>> num2>> num3;
+    tempBirth.setDate(num1, num2, num3);
+
+    dateType admitted;
+    cout << "Enter month, day, year admitted";
+    cin >> num1>> num2>> num3;
+    admitted.setDate(num1, num2, num3);
+
+    dateType discharged;
+    cout << "Enter month, day, year admitted";
+    cin >> num1>> num2>> num3;
+    discharged.setDate(num1, num2, num3);
+
+    cout << "Enter patient first and last name: ";
+    cin >> first >> second;
+
+    newPatient.setPatient(tempDoctor, tempBirth, admitted, discharged, tempBill, first, second);
+    return;
+
 }

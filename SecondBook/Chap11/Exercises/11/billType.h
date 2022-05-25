@@ -13,9 +13,10 @@ public:
     billType();
     void setPatientId(std::string);
     void updateCharge(double);
+    void printInfo();
     
 private:
     std::string patientId;
     double charges; 
 };
-#endif BILLTYPE_H
+#endif

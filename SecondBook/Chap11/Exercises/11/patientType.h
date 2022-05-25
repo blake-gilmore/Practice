@@ -8,14 +8,29 @@ physician’s name.) Add appropriate constructors and member functions to
 initialize, access, and manipulate the data members.
 Write a program to test your classes.*/
 #ifndef PATIENTTYPE_H
-#define PATIENTtYPE_H
+#define PATIENTTYPE_H
 #include "personType.h"
 #include "dateType.h"
-class patientType: public personType, public dateType
+#include <string>
+#include "doctorType.h"
+#include "billType.h"
+
+class patientType: public personType
 {
 public:
-
+    patientType();
+    void setPatient(doctorType&, dateType& dateOfBirth, dateType& dateAdmitted, dateType&dateDischarged, billType&, std::string, std::string);
+    void printInfo();
+    void printDoctorInformation();
+    void printDateOfBirth();
+    void printDateAdmitted();
+    void printDateDischarged();
+    void printBill();
 private:
-
+    doctorType doctor;
+    dateType dateOfBirth;
+    dateType dateAdmitted;
+    dateType dateDischarged;
+    billType bill;
 };
 #endif
