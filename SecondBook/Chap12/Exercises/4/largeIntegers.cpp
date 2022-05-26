@@ -1,4 +1,6 @@
 #include "largeIntegers.h"
+#include <string.h>
+#include <iostream>
 
 
 largeIntegers::largeIntegers()
@@ -7,35 +9,138 @@ largeIntegers::largeIntegers()
     lengthOfInteger = 0;
     return;
 }
-const char* largeIntegers::getInteger() const
+const int* largeIntegers::getInteger() const
 {
     return largeInt;
 }
 void largeIntegers::setInteger(std::string inNum)
 {   
     delete[] largeInt;
-    largeInt = new char[inNum.length()];
+    int index(0);
+    largeInt = new int[inNum.length()];
     lengthOfInteger = inNum.length();
+    for (int i = (lengthOfInteger-1); i >= 0; i--)
+    {
+        largeInt[i] = (inNum[index] - '0');
+        index++;
+    }   
     return;
 }
 void largeIntegers::addIntegers(largeIntegers&firstNum, largeIntegers& secondNum)
 {
+    int largestSize;
+    int tempAdd;
+    int* largest(NULL), *nextLargest(NULL), *tempPtr(NULL);
+    if (firstNum.lengthOfInteger >= secondNum.lengthOfInteger)
+    {
+        largestSize = firstNum.lengthOfInteger;
+        largest = firstNum.largeInt;
+        nextLargest = secondNum.largeInt;
+    }
+    
+    else
+    {
+        largestSize = secondNum.lengthOfInteger;
+        largest = secondNum.largeInt;
+        nextLargest = firstNum.largeInt;
+    }
+
     delete[] largeInt;
+
     if ((firstNum.lengthOfInteger == secondNum.lengthOfInteger) && 
         (firstNum.largeInt[lengthOfInteger - 1] + secondNum.largeInt[lengthOfInteger-1]) >= 10)
-            largeInt = new char[firstNum.lengthOfInteger];
-
-    else if (firstNum.lengthOfInteger >= secondNum.lengthOfInteger)
-        largeInt = new char[firstNum.lengthOfInteger];
-
+        {
+            lengthOfInteger = largestSize+1;
+            largeInt = new int[lengthOfInteger];
+            memset(largeInt, 0, (lengthOfInteger)*sizeof(*largeInt));
+        }
     else
-        largeInt = new char[secondNum.lengthOfInteger];
+    {
+        lengthOfInteger = largestSize;
+        largeInt = new int[lengthOfInteger];
+        memset(largeInt, 0, (lengthOfInteger)*sizeof(*largeInt));
+    }
 
     
-}
-void largeIntegers::subtractIntegers(largeIntegers&, largeIntegers&)
-{
 
+    for (int i = 0; i < largestSize; i++)
+    {
+        largeInt[i] += largest[i] + nextLargest[i];
+        if (largeInt[i] > 9 && ((i+1)<largestSize))
+        {
+            largeInt[i+1]++;
+            largeInt[i] -= 10;
+        }
+        else if (largeInt[i] > 9 && ((i+1) == largestSize))
+        {
+            tempPtr = largeInt;
+            largeInt = new int[lengthOfInteger+1];
+            memset(largeInt, 0, (lengthOfInteger+1)*sizeof(*largeInt));
+            for (int j = 0; j < lengthOfInteger; j++)
+            {
+                largeInt[j] = tempPtr[j];
+            }
+            lengthOfInteger++;
+            largeInt[i+1]++;
+            largeInt[i] -= 10;
+            delete[] tempPtr;
+            tempPtr = NULL;
+        }
+    }
+    return;
+}
+
+void largeIntegers::subtractIntegers(largeIntegers& firstNum, largeIntegers&secondNum)
+{
+    int largestSize;
+    int tempAdd;
+    bool isNegative(false);
+    int* largest(NULL), *nextLargest(NULL), *tempPtr(NULL);
+    if (firstNum.lengthOfInteger >= secondNum.lengthOfInteger)
+    {
+        largestSize = firstNum.lengthOfInteger;
+        largest = firstNum.largeInt;
+        nextLargest = secondNum.largeInt;
+    }
+    
+    else
+    {
+        largestSize = secondNum.lengthOfInteger;
+        largest = secondNum.largeInt;
+        nextLargest = firstNum.largeInt;
+    }
+
+    delete[] largeInt;
+
+    lengthOfInteger = largestSize;
+    largeInt = new int[lengthOfInteger];
+    memset(largeInt, 0, (lengthOfInteger)*sizeof(*largeInt));
+
+    for (int i = largestSize - 1; i >= 0; i--)
+    {
+        largeInt[i] += largest[i] + nextLargest[i];
+        if (largeInt[i] > 9 && ((i+1)<largestSize))
+        {
+            largeInt[i+1]++;
+            largeInt[i] -= 10;
+        }
+        else if (largeInt[i] > 9 && ((i+1) == largestSize))
+        {
+            tempPtr = largeInt;
+            largeInt = new int[lengthOfInteger+1];
+            memset(largeInt, 0, (lengthOfInteger+1)*sizeof(*largeInt));
+            for (int j = 0; j < lengthOfInteger; j++)
+            {
+                largeInt[j] = tempPtr[j];
+            }
+            lengthOfInteger++;
+            largeInt[i+1]++;
+            largeInt[i] -= 10;
+            delete[] tempPtr;
+            tempPtr = NULL;
+        }
+    }
+    return;
 }
 void largeIntegers::multiplyIntegers(largeIntegers&, largeIntegers&)
 {
@@ -43,7 +148,7 @@ void largeIntegers::multiplyIntegers(largeIntegers&, largeIntegers&)
 }
 bool largeIntegers::compareIntegers(std::string)
 {
-
+    return true;
 }
 
 largeIntegers::~largeIntegers()
@@ -56,3 +161,29 @@ int largeIntegers::getLength()
 {
     return lengthOfInteger;
 }
+
+void largeIntegers::print() const
+{
+    for (int i = lengthOfInteger-1; i >=0; i--)
+    {
+        std::cout << largeInt[i];
+    }
+    std::cout << std::endl;
+}
+
+bool largeIntegers::isSmaller(largeIntegers& inNum)
+{
+    if (lengthOfInteger < inNum.lengthOfInteger)
+        return true;
+    else if (lengthOfInteger > inNum.lengthOfInteger)
+        return false;
+
+    for (int i = lengthOfInteger-1; i >=0; i--)
+    {
+        if (largeInt[i] < inNum.largeInt[i])
+            return false;
+        
+    }
+    return true;
+}
+

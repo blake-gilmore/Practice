@@ -10,9 +10,17 @@ of objects.
 
 */
 #include <iostream>
-
+#include "largeIntegers.h"
 int main()
 {
+    largeIntegers firstInt;
+    largeIntegers secondInt;
+    largeIntegers sumInt;
 
+    firstInt.setInteger("1546");
+    secondInt.setInteger("2");
+    sumInt.addIntegers(firstInt, secondInt);
+
+    sumInt.print();
     return 0;
 }
