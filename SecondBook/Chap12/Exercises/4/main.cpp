@@ -17,9 +17,9 @@ int main()
     largeIntegers secondInt;
     largeIntegers sumInt;
 
-    firstInt.setInteger("1546");
-    secondInt.setInteger("2");
-    sumInt.addIntegers(firstInt, secondInt);
+    firstInt.setInteger("100000");
+    secondInt.setInteger("9");
+    sumInt.subtractIntegers(firstInt, secondInt);
 
     sumInt.print();
     return 0;

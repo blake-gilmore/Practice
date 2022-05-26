@@ -115,30 +115,23 @@ void largeIntegers::subtractIntegers(largeIntegers& firstNum, largeIntegers&seco
     lengthOfInteger = largestSize;
     largeInt = new int[lengthOfInteger];
     memset(largeInt, 0, (lengthOfInteger)*sizeof(*largeInt));
-
-    for (int i = largestSize - 1; i >= 0; i--)
+    int index(0);
+    for (int i = 0; i < largestSize; i++)
     {
-        largeInt[i] += largest[i] + nextLargest[i];
-        if (largeInt[i] > 9 && ((i+1)<largestSize))
+        index = 1;
+        if (largest[i] < nextLargest[i])
         {
-            largeInt[i+1]++;
-            largeInt[i] -= 10;
-        }
-        else if (largeInt[i] > 9 && ((i+1) == largestSize))
-        {
-            tempPtr = largeInt;
-            largeInt = new int[lengthOfInteger+1];
-            memset(largeInt, 0, (lengthOfInteger+1)*sizeof(*largeInt));
-            for (int j = 0; j < lengthOfInteger; j++)
+            while(largest[i+index] == 0)
+                index++;
+
+            for (int j = index; j >=1; j--)
             {
-                largeInt[j] = tempPtr[j];
+                largest[i+j]--;
+                largest[i+(j-1)] +=10;
             }
-            lengthOfInteger++;
-            largeInt[i+1]++;
-            largeInt[i] -= 10;
-            delete[] tempPtr;
-            tempPtr = NULL;
         }
+
+            largeInt[i] = largest[i] - nextLargest[i];
     }
     return;
 }
