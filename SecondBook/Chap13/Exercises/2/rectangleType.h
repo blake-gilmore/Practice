@@ -8,7 +8,7 @@ class rectangleType
     //Postcondition: length = 2 * length;
     // width = 2 * width;
 
-    friend rectangleType operator++(rectangleType);
+    friend rectangleType operator++(rectangleType&);
     friend rectangleType operator--(rectangleType rectIn);
     friend rectangleType operator-(rectangleType rectOne, rectangleType rectTwo);
     friend bool operator==(const rectangleType&, const rectangleType&);

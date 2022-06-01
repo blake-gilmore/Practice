@@ -4,27 +4,30 @@ P R O G R A M M I N G E X E R C I S E S
 operators +, *, ==, !=, >>, and <<. In this exercise, first redefine the class
 rectangleType by declaring the instance variables as protected and then
 overload additional operators as defined in parts a to c.
-
-
-c. The operators == and != are overloaded by considering the lengths and
-widths of rectangles. Redefine the functions to overload the relational
-operator by considering the areas of rectangles as follows: Two rectan-
-gles are the same, if they have the same area; otherwise, the rectangles
-are not the same. Similary, rectangle yard1 is greater than rectangle
-yard2 if the area of yard1 is greater than the area of yard2 . Overload
-the remaining relational operators using similar definitions.
-d. Write the definitions of the functions to overload the operators defined
-in parts a to c.
-e. Write a test program that tests various operations on the
-class rectangleType.
-
-Redo Programming Exercise 1 by overloading the operators as
-nonmembers of the class rectangleType.
-b. Write a test program that tests various operations on the
-class rectangleType.*/
-
+*/
+#include "rectangleType.h"
+#include <iostream>
 
 int main()
 {
+    rectangleType rectOne, rectTwo;
+    rectOne.setDimension(10, 9);
+    rectTwo.setDimension(6,7);
+
+    rectangleType rectThree = rectOne - rectTwo;
+    std::cout << "Rect three: " << rectThree.getLength() << " " << rectThree.getWidth() << std::endl;
+    ++rectThree;
+    std::cout << "Rect three: " << rectThree.getLength() << " " << rectThree.getWidth() << std::endl;
+
+
+    rectangleType rectFour;
+    rectFour.setDimension(10,9);
+    if (rectOne == rectFour)
+    {
+        std::cout << "Equal";
+    }
+
+
+
     return 0;
 }

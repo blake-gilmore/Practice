@@ -44,7 +44,7 @@ length = 0;
 width = 0;
 }
 
-rectangleType operator++(rectangleType rectIn)
+rectangleType operator++(rectangleType& rectIn)
 {
     rectIn.length++;
     rectIn.width++;
