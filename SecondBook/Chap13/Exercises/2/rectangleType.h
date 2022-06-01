@@ -8,6 +8,10 @@ class rectangleType
     //Postcondition: length = 2 * length;
     // width = 2 * width;
 
+    friend rectangleType operator++(rectangleType);
+    friend rectangleType operator--(rectangleType rectIn);
+
+
     void setDimension(double l, double w);
     //Function to set the length and width of the rectangle.
     //Postcondition: length = l; width = w;
