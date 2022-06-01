@@ -11,6 +11,8 @@ class rectangleType
     friend rectangleType operator++(rectangleType);
     friend rectangleType operator--(rectangleType rectIn);
     friend rectangleType operator-(rectangleType rectOne, rectangleType rectTwo);
+    friend bool operator==(const rectangleType&, const rectangleType&);
+    friend bool operator!=(const rectangleType&, const rectangleType&);
 
 
     void setDimension(double l, double w);

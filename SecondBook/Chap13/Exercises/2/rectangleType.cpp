@@ -81,3 +81,12 @@ rectangleType operator-(rectangleType rectOne, rectangleType rectTwo)
     tempRect.width = rectOne.width - rectTwo.width;
     return tempRect;
 }
+
+bool operator==(const rectangleType& rectOne, const rectangleType& rectTwo)
+{
+    return (rectOne.area() == rectTwo.area());
+}
+bool operator!=(const rectangleType& rectOne, const rectangleType& rectTwo)
+{
+    return (rectOne.area() != rectTwo.area());
+}
