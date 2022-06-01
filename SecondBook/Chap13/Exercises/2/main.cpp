@@ -4,14 +4,12 @@ P R O G R A M M I N G E X E R C I S E S
 operators +, *, ==, !=, >>, and <<. In this exercise, first redefine the class
 rectangleType by declaring the instance variables as protected and then
 overload additional operators as defined in parts a to c.
-a. Overload the pre- and post-increment and decrement operators to
-increment and decrement, respectively, the length and width of a
-rectangle by one unit. (Note that after decrementing the length and
-width, they must be postive.)
+
 b. Overload the binary operator - to subtract the dimensions of one
 rectangle from the corresponding dimensions of another rectangle. If
 the resulting dimensions are not positive, output an appropriate message
 and do not perform the operation.
+
 c. The operators == and != are overloaded by considering the lengths and
 widths of rectangles. Redefine the functions to overload the relational
 operator by considering the areas of rectangles as follows: Two rectan-

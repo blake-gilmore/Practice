@@ -65,6 +65,19 @@ rectangleType operator--(rectangleType rectIn)
         cout << "Width below 1, keeping at 1\n";
         rectIn.width++;
     }
-    
+
     return rectIn;
+}
+
+rectangleType operator-(rectangleType rectOne, rectangleType rectTwo)
+{
+    rectangleType tempRect;
+    tempRect.length = rectOne.length - rectTwo.length;
+    if (tempRect.length < 1)
+    {
+        cout << "Length below 1. Cannot do operation.\n";
+        return rectOne;
+    }
+    tempRect.width = rectOne.width - rectTwo.width;
+    return tempRect;
 }
