@@ -30,6 +30,7 @@ bool operator>=(const newString&) const;
 bool operator>(const newString&) const;
 newString operator+(const newString&) const;
 newString& operator+=(const newString&);
+int length()const;
 
 private:
 char *strPtr; //pointer to the char array

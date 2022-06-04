@@ -107,3 +107,7 @@ newString& newString::operator+=(const newString& inString)
     
     return *this;
 }
+int newString::length() const
+{
+    return strLength;
+}

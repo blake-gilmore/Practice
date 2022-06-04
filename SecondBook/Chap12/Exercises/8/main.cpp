@@ -1,6 +1,4 @@
 /*Extend the definition of the class newString as follows:
-i. Overload the operators + and += to perform the string concatena-
-tion operations.
 ii. Add the function length to return the length of the string.
 b. Write the definition of the function to implement the operations defined
 in part a.
@@ -19,5 +17,7 @@ int main()
     stringOne += " ";
     stringOne += stringTwo;
     std::cout << stringOne << std::endl;
+
+    std::cout << "The length of stringOne is now: " << stringOne.length() << std::endl;
     return 0;
 }
