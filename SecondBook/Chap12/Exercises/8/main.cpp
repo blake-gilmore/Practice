@@ -8,13 +8,16 @@ c. Write a test program to test various operations on the newString objects*/
 
 
 #include "newString.h"
-
+#include <iostream>
 int main()
 {
-    newString stringOne;
-    newString stringTwo;
+    newString stringOne("Hello");
+    newString stringTwo("World");
 
+    std::cout << stringOne + " " + stringTwo << std::endl;
 
-
+    stringOne += " ";
+    stringOne += stringTwo;
+    std::cout << stringOne << std::endl;
     return 0;
 }
