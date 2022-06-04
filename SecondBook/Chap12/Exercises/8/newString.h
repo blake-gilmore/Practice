@@ -29,7 +29,7 @@ bool operator<(const newString&) const;
 bool operator>=(const newString&) const;
 bool operator>(const newString&) const;
 newString operator+(const newString&) const;
-newString operator+=(const newString&) const;
+newString& operator+=(const newString&);
 
 private:
 char *strPtr; //pointer to the char array

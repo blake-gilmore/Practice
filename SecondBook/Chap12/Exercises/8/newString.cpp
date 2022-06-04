@@ -99,7 +99,11 @@ newString newString::operator+(const newString& inString) const
     strcat(tempString.strPtr, inString.strPtr);
     return tempString;
 }
-newString newString::operator+=(const newString& inString) const
+newString& newString::operator+=(const newString& inString) 
 {
-
+    newString tempString;
+    tempString = *this + inString;
+    *this = tempString;
+    
+    return *this;
 }
