@@ -3,7 +3,8 @@
 
 int main()
 {
-    myArray<int> intArray;
+    myArray<int> intArray(-5, 4);
+    intArray.initializeArray();
     
     return 0;
 }

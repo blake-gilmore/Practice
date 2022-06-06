@@ -4,7 +4,7 @@ template<class ArrayType>
 class myArray
 {
 public:
-    myArray(int, int);
+    myArray(int = 0, int = 0);
     void initializeArray();
     ArrayType getElement(int);
     void setElement(int);
