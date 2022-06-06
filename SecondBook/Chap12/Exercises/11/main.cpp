@@ -1,9 +1,10 @@
 
 #include "myArray.h"
+#include <string>
 
 int main()
 {
-    myArray<int> intArray(-5, 4);
+    myArray<std::string> intArray(-5, 4);
     intArray.initializeArray();
     
     std::cout << "Enter the number of the array you want to get: ";
