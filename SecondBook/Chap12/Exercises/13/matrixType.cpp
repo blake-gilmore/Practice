@@ -67,7 +67,7 @@ matrixType matrixType::operator +(const matrixType& matrixIn)
 
     return tempMatrix;
 }
-matrixType matrixType::operator -(matrixType& matrixIn)
+matrixType matrixType::operator -(const matrixType& matrixIn)
 {
     matrixType tempMatrix;
     if (rows == matrixIn.rows && columns == matrixIn.columns)
@@ -88,9 +88,28 @@ matrixType matrixType::operator -(matrixType& matrixIn)
 
     return tempMatrix;
 }
-matrixType matrixType::operator *(matrixType&)
+matrixType matrixType::operator *(const matrixType& matrixIn)
 {
     matrixType tempMatrix;
+    int tempNum;
+    if (columns == matrixIn.rows)
+    {
+        tempMatrix.initializeMatrix(rows, matrixIn.columns);
+        for (int i = 0; i < rows; i ++)
+        {
+            for (int j = 0; j < matrixIn.columns; j++)
+            {
+                tempMatrix.matrixValues[i][j] = 0;
+                for (int n = 0; n < columns; n++)
+                    tempMatrix.matrixValues[i][j] += matrixValues[i][n] * matrixIn.matrixValues[n][j];
+            }
+        }
+    }
+    else
+    {
+        std::cout << "dimensions not applicable for multiplication.";
+    }
+
     return tempMatrix;
 }
 matrixType& matrixType::operator =(matrixType&)
