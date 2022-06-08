@@ -67,9 +67,25 @@ matrixType matrixType::operator +(const matrixType& matrixIn)
 
     return tempMatrix;
 }
-matrixType matrixType::operator -(matrixType&)
+matrixType matrixType::operator -(matrixType& matrixIn)
 {
     matrixType tempMatrix;
+    if (rows == matrixIn.rows && columns == matrixIn.columns)
+    {
+        tempMatrix.initializeMatrix(rows, columns);
+        for (int i = 0; i < rows; i ++)
+        {
+            for (int j = 0; j < columns; j++)
+            {
+                tempMatrix.matrixValues[i][j] = matrixValues[i][j] - matrixIn.matrixValues[i][j];
+            }
+        }
+    }
+    else
+    {
+        std::cout << "Rows and columns are not the same. Addition not done.";
+    }
+
     return tempMatrix;
 }
 matrixType matrixType::operator *(matrixType&)

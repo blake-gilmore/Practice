@@ -50,5 +50,9 @@ int main()
     std::cout << "Matrix 1 plus Matrix 2\n\n";
     std::cout << first + second;    
 
+    std::cout << "\n\n";
+    std::cout << "Matrix 1 minus matrix 2\n\n";
+    std::cout << first - second;
+
     return 0;
 }
