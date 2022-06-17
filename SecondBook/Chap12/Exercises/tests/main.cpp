@@ -1,16 +1,28 @@
 #include <iostream>
 #include <string>
+class divByZero
+{
+public:
+    divByZero(){message = "Bye Bye";}
+    void what(){std::cout << message << std::endl;}
+private:
+    std::string message;
+};
+void do_division(int num1, int num2)
+{
 
+    if (num2 == 0)
+        throw divByZero();
+    
+}
 int main()
 {
-    try
-    {
-        std::string str1 = "Hello ";
-        std::string str2 = str1.substr(10, 20);
+    try{
+        do_division(5,0);
     }
-    catch (std::out_of_range re)
+    catch(divByZero div)
     {
-        std::cout << "Out of range!";
+        div.what(); 
     }
     return 0;
 }
