@@ -34,9 +34,16 @@ void printArray(Type* arr, int arrSize)
     return;
 }
 template <class Type>
-void sequentialSearch(Type searchArray[])
+int sequentialSearch(Type searchArray[], int arrSize, Type searchItem)
 {
-    return;
+    for (int i = 0; i < arrSize; i++)
+    {
+        if (searchArray[i] == searchItem)
+        {
+            return i;
+        }
+    }
+    return -1;
 }
 
 int main()
@@ -44,6 +51,7 @@ int main()
     int myArray[] = {10, 78, 9, 20, 14, 1, 100};
     int size = sizeof(myArray);
     bubbleSort(myArray, 7);
+    std::cout << sequentialSearch(myArray, 7,100);
     printArray(myArray, 7);
     
     return 0;
