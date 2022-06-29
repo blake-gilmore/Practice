@@ -1,16 +1,32 @@
+#include "nodeType.h"
 #include "linkedListType.h"
 
 template <class Type>
-linkedListType::linkedListType()
+linkedListType<Type>::linkedListType()
 {
     head = nullptr;
     tail = nullptr;
+    numEntries = 0;
     return;
 }
 
 template <class Type>
-linkedListType::addToFront(Type newInfo)
+void linkedListType<Type>::addToFront(Type newInfo)
 {
-
+    nodeType<Type>* newNode = new nodeType<Type>;
+    newNode->info= newInfo;
+    newNode->link = head->link;
+    head = newNode;
+    numEntries++;
+    return;
 }
-linkedListType::addToBack(Type newInfo);
+template <class Type>
+void linkedListType<Type>::addToBack(Type newInfo)
+{
+    nodeType<Type>* newNode = new nodeType<Type>;
+    newNode->info = newInfo;
+    newNode->link = nullptr;
+    tail = newNode;
+    numEntries++;
+    return;
+}

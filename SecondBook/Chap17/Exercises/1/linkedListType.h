@@ -4,11 +4,13 @@ class linkedListType:
 {
 public:
     linkedListType();
-    addToFront(Type);
-    addToBack(Type);
-    
+    void addToFront(Type);
+    void addToBack(Type);
+
 
 protected:
     nodeType<Type> *head;
     nodeType<Type> *tail;
+    int numEntries;
 };
+
