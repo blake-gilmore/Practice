@@ -13,6 +13,9 @@ member variables.*/
 #include "personType.h"
 #include "dateType.h"
 #include <string>
+#include "fstream"
+#include "iostream"
+
 using namespace std;
 class extPersonType: public personType, public addressType, public dateType
 {
@@ -22,7 +25,8 @@ public:
     void setType(string inType){type = inType;}
     void setPhoneNumber(string inNumber){phoneNumber = inNumber;}
     void setInformation();
-private:
+    friend ostream& operator << (ostream&, extPersonType&);
+protected:
     string type;
     string phoneNumber;
 };

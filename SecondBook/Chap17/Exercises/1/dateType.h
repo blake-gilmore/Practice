@@ -28,7 +28,7 @@ dateType(int month = 1, int day = 1, int year = 1900);
 // If no values are specified, the default
 // values are used to initialize the member
 // variables.
-private:
+protected:
 int dMonth; //variable to store the month
 int dDay; //variable to store the day
 int dYear; //variable to store the year

@@ -15,7 +15,7 @@ public:
     void setState(std::string);
     void setZipCode(std::string);
 
-private:
+protected:
     std::string address, city, state, zipCode;
 };
 #endif

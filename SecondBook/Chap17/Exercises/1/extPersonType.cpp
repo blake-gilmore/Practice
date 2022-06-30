@@ -1,6 +1,7 @@
 #include "extPersonType.h"
 #include "string.h"
 #include <iostream>
+#include <fstream>
 extPersonType::extPersonType(string inType, string inNumber)
 {
     personType();
@@ -52,4 +53,15 @@ void extPersonType::setInformation()
     std::cout << "Enter zip code: ";
     std::cin >> tempOne;
     setZipCode(tempOne);
+}
+
+std::ostream& operator<<(std::ostream& fileOut, extPersonType& itemToWrite)
+{
+    fileOut << itemToWrite.firstName << " " << itemToWrite.lastName << std::endl
+            << itemToWrite.phoneNumber << std::endl
+            << itemToWrite.type << std::endl
+            << itemToWrite.dMonth << " " << itemToWrite.dDay << ", " << itemToWrite.dYear << std::endl
+            << itemToWrite.address << " " << itemToWrite.city << ", " << itemToWrite.state << " " << itemToWrite.zipCode << "\n\n\n";
+            
+    return fileOut;
 }
