@@ -22,8 +22,8 @@ public:
     Type back() const;
     virtual bool search(const Type&) const = 0;
     virtual void deleteNode(const Type&) = 0;
-    virtual void addToFront(Type&) = 0;
-    virtual void addToBack(Type&) = 0;
+    virtual void addToFront(const Type&) = 0;
+    virtual void addToBack(const Type&) = 0;
     linkedListIterator<Type> begin();
     linkedListIterator<Type> end();
     void print() const;

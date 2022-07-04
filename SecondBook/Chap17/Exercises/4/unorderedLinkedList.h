@@ -7,17 +7,17 @@ class unorderedLinkedList: public linkedListType<Type>
 {
 public:
     unorderedLinkedList();
-    void addToFront(const Type& newInfo);
-    void addToBack(const Type& newInfo);
-    bool search(const Type&);
-    void deleteNode(const Type&);
+    virtual void addToFront(const Type& newInfo);
+    virtual void addToBack(const Type& newInfo);
+    virtual bool search(const Type&) const;
+    virtual void deleteNode(const Type&);
 
 
 protected:
 };
 
 template <class Type>
-bool unorderedLinkedList<Type>::search(const Type& searchItem)
+bool unorderedLinkedList<Type>::search(const Type& searchItem) const
 {
     nodeType<Type>* itemSearcher = this->head;
     while (itemSearcher != nullptr)
@@ -82,12 +82,12 @@ void unorderedLinkedList<Type>::addToBack(const Type& newInfo)
     nodeType<Type>* newNode = new nodeType<Type>;
     newNode->info = newInfo;
     newNode->link = nullptr;
-    if (head == nullptr)
-        head = newNode;
+    if (this->head == nullptr)
+        this->head = newNode;
     else
-        tail->link = newNode;
-    tail = newNode;
-    numEntries++;
+        this->tail->link = newNode;
+    this->tail = newNode;
+    this->numEntries++;
     return;
 }
 #endif
