@@ -21,6 +21,7 @@ int main()
                 myList.addToFront(choice);
                 break;
             case 2:
+                myList.reversePrint();
                 break;
         }
         

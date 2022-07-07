@@ -53,6 +53,7 @@ void unorderedLinkedList<Type>::deleteNode(const Type& itemToDelete)
                 previousNode->link = itemSearcher->link;
                 delete itemSearcher;
             }
+            this->numEntries--;
             return;
         }
         previousNode = itemSearcher;
@@ -71,7 +72,11 @@ void unorderedLinkedList<Type>::addToFront(const Type& newInfo)
 {
     nodeType<Type>* newNode = new nodeType<Type>;
     newNode->info = newInfo;
-    newNode->link = this->head->link;
+    if (this->head == nullptr)
+        newNode->link = nullptr;
+    else
+        newNode->link = this->head;
+
     this->head = newNode;
     this->numEntries++;
     return;

@@ -28,6 +28,8 @@ public:
     linkedListIterator<Type> end();
     void print() const;
     std::ostream& print(std::ostream& os) const;
+    void reversePrint() const;
+    void recursiveReversePrint() const;
 
     template <class oType>
     friend std::ostream& operator<< (std::ostream& fileOut, linkedListType<oType>& itemToWrite);
@@ -183,5 +185,30 @@ std::ostream& linkedListType<Type>::print(std::ostream& fileOut) const
     }
     return fileOut;
 }   
+
+template <class Type>
+void linkedListType<Type>::reversePrint() const
+{
+    nodeType<Type>* printIterator;
+    for (int i = numEntries-1; i >= 0; i--)
+    {
+        printIterator = head;
+        for (int j = 0; j < i; j++)
+        {
+            printIterator = printIterator->link;
+        }
+        std::cout << printIterator->info << " ";
+    }
+    
+    return;
+}
+template <class Type>
+void linkedListType<Type>::recursiveReversePrint() const
+{
+
+    
+    
+    return;
+}
 
 #endif
