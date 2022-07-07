@@ -29,7 +29,7 @@ public:
     void print() const;
     std::ostream& print(std::ostream& os) const;
     void reversePrint() const;
-    void recursiveReversePrint() const;
+    void recursiveReversePrint(nodeType<Type>* = -1) const;
 
     template <class oType>
     friend std::ostream& operator<< (std::ostream& fileOut, linkedListType<oType>& itemToWrite);
@@ -203,11 +203,20 @@ void linkedListType<Type>::reversePrint() const
     return;
 }
 template <class Type>
-void linkedListType<Type>::recursiveReversePrint() const
+void linkedListType<Type>::recursiveReversePrint(nodeType<Type>* nodeInAddress) const
 {
+    if (nodeInAddress == -1)
+    {
+        nodeInAddress = head;
+    }
+    else if (nodeInAddress == nullptr)
+    {
+        return;
+    }
 
-    
-    
+    recursiveReversePrint(nodeInAddress.link);
+    std::cout << nodeInAddress.info << " ";
+
     return;
 }
 
